@@ -1,0 +1,109 @@
+from tkinter import * 
+from tkinter import ttk
+from tkinter import messagebox 
+
+def submit():
+    hargaobat = 0
+    hergabentuk = 0
+    totalharga = 0
+    if len(stringnama.get()) == 0:
+        messagebox.showerror("Error","BELUM MENGISI NAMA OBAT")
+        return
+    
+    if len(stringnama.get()) == 0:
+        messagebox.showerror("Error","BELUM MENGISI HARGA OBAT")
+        return
+    
+    if str(stringnama.get()) == "promag":
+        hargaobat = hargaobat+8000
+        
+    if str(stringnama.get()) == "paracetamol":
+        hargaobat = hargaobat+5000
+        
+    if str(stringnama.get()) == "flu":
+        hargaobat = hargaobat+6000
+
+    if str(stringnama.get()) == "Sanmol":
+        hargaobat = hargaobat+8000
+
+    if str(stringnama.get()) == "Siladeks":
+        hargaobat = hargaobat+23000
+        
+    if str(stringnama.get()) == "bisolvon":
+        hargaobat = hargaobat+16000
+
+    if str(stringnama.get()) == "Bufect":
+        hargaobat = hargaobat+23000
+
+    if str(stringnama.get()) == "Entrostop":
+        hargaobat = hargaobat+8000
+    
+        
+    if radio.get()== 0:
+        messagebox.showerror("Error","BELUM MEMILIH JENIS OBAT")
+        return
+    
+    elif radio.get() == 1:
+        perkenalan="generik"
+        
+    elif radio.get() == 2:
+        perkenalan="paten "
+        
+    if strhobi.get() == 'Jenis Obat...':
+        messagebox.showerror("Error","BELUM MEMILIH Jenis Obat")
+        return
+
+    if strhobi.get() == "Kapsul":
+        hargabentuk = hergabentuk+8000
+
+    if strhobi.get() == "Tablet":
+        hargabentuk = hergabentuk+6000
+
+    if strhobi.get() == "Sirup":
+        hargabentuk = hergabentuk+12000
+
+    totalharga = hargaobat+hargabentuk
+    
+    lbhasil = Label(text = "Nama Obat\t: " + str(stringnama.get())  + " jenis " + perkenalan
+                    + " bentuk obat " + strhobi.get() + " .Total harga obatnya adalah " + str(totalharga))messagebox.showinfo("Notifikasi", Kirim).place(x = 30,y = 200)
+  
+    
+  
+top = Tk()  
+top.geometry("700x250")
+top.title("Apotek Jiwa Negeri")
+
+#creating label  
+lbnama = Label(top, text = "Nama Obat\t:").place(x = 30,y = 10)    
+lbjo = Label(text = "Jenis obat\t:").place(x = 30, y=40)
+lbbo = Label(text = "Bentuk Obat\t:").place(x=30, y=110)
+lbfungsi= Label(text = "Bentuk Obat\t:").place(x=30, y=150)
+
+
+#create input  
+stringnama = StringVar()
+inama = Entry(top,width = 20, textvariable=stringnama).place(x = 110, y = 10)  
+
+#create radio
+radio = IntVar()
+R1 = Radiobutton(top, text="generik", variable=radio, value=1).place(x=105, y=40)  
+R2 = Radiobutton(top, text="paten", variable=radio, value=2).place(x=105, y=60)  
+
+
+#create combobox
+strhobi = StringVar(value=' ') 
+Cb1 = ttk.Combobox(top, width = 17, textvariable = strhobi, state="readonly")
+Cb1.place(x=110, y=110)
+
+# Adding combobox drop down list 
+Cb1['values'] = ('Kapsul',
+                 'Tablet',
+                 'Sirup',)
+
+       
+ 
+    
+#create button
+btn1 = Button(top, command = submit, text="SUBMIT").place(x=120,y=150)
+
+top.mainloop()
