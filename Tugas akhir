@@ -16,27 +16,36 @@ def submit():
     
     if str(stringnama.get()) == "promag":
         hargaobat = hargaobat+8000
+        Fungsiobat  =" untuk mengatasi sakit maag, penyakit asam lambung naik, dan perut kembung"
         
-    if str(stringnama.get()) == "paracetamol":
+    if str(stringnama.get()) == "Paracetamol":
         hargaobat = hargaobat+5000
-        
-    if str(stringnama.get()) == "flu":
-        hargaobat = hargaobat+6000
+        Fungsiobat  =" obat untuk penurun demam dan pereda nyeri, seperti nyeri haid dan sakit gigi "
 
+
+    if str(stringnama.get()) == "Mixagrib":
+        hargaobat = hargaobat+6000
+        Fungsiobat  =" Kandungan paracetamol, phenylephrine HCl, dextromethorphan HBr, serta chlorpheniramine maleate di dalam Mixagrip berfungsi untuk meredakan gejala flu, seperti demam, sakit kepala, bersin-bersin, dan hidung tersumbat "
     if str(stringnama.get()) == "Sanmol":
         hargaobat = hargaobat+8000
+        Fungsiobat  =" Untuk mengatasi demam dan rasa sakit, seperti sakit kepala, nyeri otot, sakit punggung, dan sakit gigi "
 
-    if str(stringnama.get()) == "Siladeks":
+    if str(stringnama.get()) == "Siladex":
         hargaobat = hargaobat+23000
+        Fungsiobat  =" Mengencerkan dahak dan membantu mengeluarkan dahak dari saluran pernapasan "
         
-    if str(stringnama.get()) == "bisolvon":
+    if str(stringnama.get()) == "Bisolvon":
         hargaobat = hargaobat+16000
+        Fungsiobat  =" Ini bekerja dengan cara mengencerkan dahak di saluran pernapasan (mukolitik) dan membantu mengeluarkannya "
 
     if str(stringnama.get()) == "Bufect":
         hargaobat = hargaobat+23000
+        Fungsiobat  =" Meringankan nyeri ringan sampai sedang pada penyakit gigi atau sesudah pencabutan gigi, nyeri kepala, nyeri setelah operasi, nyeri pada penyakit reumatik, nyeri karena terkilir, menurunkan demam "
 
     if str(stringnama.get()) == "Entrostop":
         hargaobat = hargaobat+8000
+        Fungsiobat  =" Untuk menyerap racun dan bakteri penyebab diare dalam usus, serta mengurangi jumlah cairan yang dikeluarkan "
+        
     
         
     if radio.get()== 0:
@@ -50,7 +59,7 @@ def submit():
         perkenalan="paten "
         
     if strhobi.get() == 'Jenis Obat...':
-        messagebox.showerror("Error","BELUM MEMILIH Jenis Obat")
+        messagebox.showerror("Error","BELUM MEMILIH JENIS OBAT")
         return
 
     if strhobi.get() == "Kapsul":
@@ -64,20 +73,29 @@ def submit():
 
     totalharga = hargaobat+hargabentuk
     
-    lbhasil = Label(text = "Nama Obat\t: " + str(stringnama.get())  + " jenis " + perkenalan
-                    + " bentuk obat " + strhobi.get() + " .Total harga obatnya adalah " + str(totalharga))messagebox.showinfo("Notifikasi", Kirim).place(x = 30,y = 200)
-  
     
   
+    lbhasil = Label(text = "Nama Obat\t: " + str(stringnama.get()), fg = "Black", bg = "White" ).place(x = 30,y = 200)
+    
+    lbhasil = Label(text = " Jenis Obat : " + perkenalan, fg = "Black", bg = "White" ).place(x = 30,y = 250)
+     
+    lbhasil = Label(text =  " Bentuk Obat : " + strhobi.get(), fg = "Black", bg = "White" ).place(x = 30,y = 300)
+     
+    lbhasil = Label(text = " Total harga obatnya adalah " + str(totalharga) , fg = "Black", bg = "White" ).place(x = 30,y = 350)
+     
+    lbhasil = Label(text =  " Fungsi obat adalah " + FungsiObat, fg = "Black", bg = "White" ).place(x = 30,y = 400)
+    
 top = Tk()  
-top.geometry("700x250")
+top.geometry("900x650")
 top.title("Apotek Jiwa Negeri")
+top.configure(bg="Khaki")
+top.title("start building your own PC")
 
 #creating label  
-lbnama = Label(top, text = "Nama Obat\t:").place(x = 30,y = 10)    
-lbjo = Label(text = "Jenis obat\t:").place(x = 30, y=40)
-lbbo = Label(text = "Bentuk Obat\t:").place(x=30, y=110)
-lbfungsi= Label(text = "Bentuk Obat\t:").place(x=30, y=150)
+lbnama = Label(top, text = "Nama Obat\t:",bg="Khaki").place(x = 30,y = 10)    
+lbjo = Label(text = "Jenis obat\t:",bg="Khaki").place(x = 30, y=40)
+lbbo = Label(text = "Bentuk Obat\t:",bg="Khaki").place(x=30, y=110)
+
 
 
 #create input  
@@ -104,6 +122,6 @@ Cb1['values'] = ('Kapsul',
  
     
 #create button
-btn1 = Button(top, command = submit, text="SUBMIT").place(x=120,y=150)
+btn1 = Button(top, command = submit, text="CHECK").place(x=120,y=150)
 
 top.mainloop()
